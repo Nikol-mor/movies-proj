@@ -1,5 +1,9 @@
 <section class="movie-preview">
-  <section (click)="onSelect.emit(movie.id)" class="info">
+  <!-- <section (click)="onSelect.emit(movie.id)" class="info"> -->
+  <!-- <section class="info">
     <h2>{{ movie.title }}</h2>
-  </section>
+  </section> -->
+  <a [routerLink]="['movie', movie.id]" class="info">
+    <h2>{{ movie.title }}</h2>
+  </a>
 </section>

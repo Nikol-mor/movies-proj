@@ -1,8 +1,9 @@
 <section class="movie-list">
-  <movie-preview
+  <movie-preview *ngFor="let movie of movies" [movie]="movie"></movie-preview>
+  <!-- <movie-preview
     (onSelect)="onSelect.emit($event)"
     *ngFor="let movie of movies"
     [movie]="movie"
   >
-  </movie-preview>
+  </movie-preview> -->
 </section>

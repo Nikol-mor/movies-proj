@@ -11,8 +11,8 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieAppComponent implements OnInit, OnDestroy {
   movies: Movie[];
   movies$: Observable<Movie[]>;
-  subscription: Subscription;
-  selectedMovieId: string;
+  // subscription: Subscription;
+  // selectedMovieId: string;
 
   constructor(private movieService: MovieService) {}
 
@@ -28,9 +28,9 @@ export class MovieAppComponent implements OnInit, OnDestroy {
     // });
   }
 
-  onSelectMovie(movieId: string) {
-    this.selectedMovieId = movieId;
-  }
+  // onSelectMovie(movieId: string) {
+  //   this.selectedMovieId = movieId;
+  // }
 
   ngOnDestroy(): void {
     // this.subscription.unsubscribe();

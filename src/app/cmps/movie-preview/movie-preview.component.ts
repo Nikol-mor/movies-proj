@@ -8,7 +8,7 @@ import { Movie } from 'src/app/models/movie';
 })
 export class MoviePreviewComponent implements OnInit {
   @Input() movie: Movie;
-  @Output() onSelect = new EventEmitter<string>();
+  // @Output() onSelect = new EventEmitter<string>();
   constructor() {}
 
   ngOnInit(): void {}
