@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { AppHeaderComponent } from './cmps/app-header/app-header.component';
     LoginComponent,
     AppHeaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
