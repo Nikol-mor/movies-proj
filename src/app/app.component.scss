@@ -2,20 +2,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #464159;
+  color: #8bbabb;
 
   main {
     flex-grow: 1;
-  }
-
-  footer {
-    background-color: #252525;
-    color: white;
-  }
-
-  footer {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    width: 100%;
   }
 }

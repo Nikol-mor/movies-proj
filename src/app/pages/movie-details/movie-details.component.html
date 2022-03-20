@@ -1,11 +1,7 @@
-<section
-  class="movie-details"
-  style.backgroundImage="url({{ movie.posterUrl }})"
->
-  <div style.backgroundImage="url({{ movie.posterUrl }})"></div>
-  <img src="movie.posterUrl" alt="" />
-  <h2>Movie Id: {{ movie.id }}</h2>
+<section class="movie-details">
+  <img [src]="movie.posterUrl" alt="" />
+  <h2><span>Movie Id:</span> {{ movie.id }}</h2>
 
-  <h2>Title: {{ movie.title }}</h2>
-  <h2>Plot: {{ movie.plot }}</h2>
+  <h2><span>Title:</span> {{ movie.title }}</h2>
+  <h2><span>Plot:</span>{{ movie.plot }}</h2>
 </section>

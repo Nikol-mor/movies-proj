@@ -5,9 +5,11 @@
   ></movie-details> -->
 
   <!-- <ng-template #petList> -->
+
   <movie-filter></movie-filter>
   <movie-list [movies]="movies$ | async"></movie-list>
   <router-outlet></router-outlet>
+
   <!-- <movie-list
       (onSelect)="selectedMovieId = $event"
       [movies]="movies$ | async"

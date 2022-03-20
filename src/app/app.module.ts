@@ -12,6 +12,7 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 import { LoginComponent } from './pages/login/login.component';
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppFooterComponent } from './cmps/app-footer/app-footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     MovieDetailsComponent,
     LoginComponent,
     AppHeaderComponent,
+    AppFooterComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
