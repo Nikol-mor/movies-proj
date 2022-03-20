@@ -13,7 +13,7 @@ export class MovieService {
 
   private _movieDb: Movie[] = [
     {
-      id: 1,
+      id: '1',
       title: 'Beetlejuice',
       year: '1988',
       runtime: '92',
@@ -25,7 +25,7 @@ export class MovieService {
         'https://images-na.ssl-images-amazon.com/images/M/MV5BMTUwODE3MDE0MV5BMl5BanBnXkFtZTgwNTk1MjI4MzE@._V1_SX300.jpg',
     },
     {
-      id: 2,
+      id: '2',
       title: 'The Cotton Club',
       year: '1984',
       runtime: '127',
@@ -37,7 +37,7 @@ export class MovieService {
         'https://images-na.ssl-images-amazon.com/images/M/MV5BMTU5ODAyNzA4OV5BMl5BanBnXkFtZTcwNzYwNTIzNA@@._V1_SX300.jpg',
     },
     {
-      id: 3,
+      id: '3',
       title: 'The Shawshank Redemption',
       year: '1994',
       runtime: '142',
@@ -65,7 +65,7 @@ export class MovieService {
     this._movies$.next(movies);
   }
 
-  public getById(movieId: number): Observable<Movie> {
+  public getById(movieId: string): Observable<Movie> {
     const movie = this._movieDb.find((movie) => movie.id === movieId);
     return of({ ...movie });
   }

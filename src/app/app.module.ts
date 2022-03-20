@@ -9,6 +9,8 @@ import { MoviePreviewComponent } from './cmps/movie-preview/movie-preview.compon
 import { MovieFilterComponent } from './cmps/movie-filter/movie-filter.component';
 import { FormsModule } from '@angular/forms';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
     MoviePreviewComponent,
     MovieFilterComponent,
     MovieDetailsComponent,
+    LoginComponent,
+    AppHeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

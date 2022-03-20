@@ -8,7 +8,7 @@ import { Movie } from 'src/app/models/movie';
 })
 export class MovieListComponent implements OnInit {
   @Input() movies: Movie[];
-  // @Output() onSelect = new EventEmitter<number>();
+  @Output() onSelect = new EventEmitter<string>();
   constructor() {}
 
   ngOnInit(): void {}

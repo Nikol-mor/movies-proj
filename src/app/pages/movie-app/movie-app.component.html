@@ -1,9 +1,18 @@
 <section class="movie-app">
-  <!-- <pre>{{ movies | json }}</pre> -->
-  <movie-filter></movie-filter>
-  <movie-list [movies]="movies$ | async"></movie-list>
-  <movie-details></movie-details>
+  <movie-details
+    *ngIf="selectedMovieId; else petList"
+    [movieId]="selectedMovieId"
+  ></movie-details>
+
+  <ng-template #petList>
+    <movie-filter></movie-filter>
+    <movie-list
+      (onSelect)="selectedMovieId = $event"
+      [movies]="movies$ | async"
+    ></movie-list>
+  </ng-template>
   <!-- <movie-list
+    *ngIf="!selectedMovieId"
     (onSelect)="selectedMovieId = $event"
     [movies]="movies$ | async"
   ></movie-list> -->

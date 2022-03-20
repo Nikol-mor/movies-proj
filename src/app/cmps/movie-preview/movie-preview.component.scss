@@ -1,0 +1,25 @@
+.movie-preview {
+  width: 360px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #4caf501a;
+  border-radius: 3px;
+  box-shadow: -3px 3px 15px #00000026;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  overflow-y: hidden;
+  cursor: pointer;
+
+  .info {
+    padding: 10px;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  &:hover .info {
+    cursor: pointer;
+    color: rgb(40, 90, 40);
+  }
+}

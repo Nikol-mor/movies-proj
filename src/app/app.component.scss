@@ -6,17 +6,12 @@
   main {
     flex-grow: 1;
   }
-  header {
-    background-color: lightblue;
-    margin-bottom: 50px;
-  }
 
   footer {
     background-color: #252525;
     color: white;
   }
 
-  header,
   footer {
     height: 70px;
     display: flex;

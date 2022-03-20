@@ -12,7 +12,7 @@ export class MovieAppComponent implements OnInit, OnDestroy {
   movies: Movie[];
   movies$: Observable<Movie[]>;
   subscription: Subscription;
-  selectedMovieId: number;
+  selectedMovieId: string;
 
   constructor(private movieService: MovieService) {}
 
@@ -28,7 +28,7 @@ export class MovieAppComponent implements OnInit, OnDestroy {
     // });
   }
 
-  onSelectMovie(movieId: number) {
+  onSelectMovie(movieId: string) {
     this.selectedMovieId = movieId;
   }
 
