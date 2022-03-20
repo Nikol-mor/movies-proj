@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -10,22 +10,29 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class MovieAppComponent implements OnInit, OnDestroy {
   movies: Movie[];
+  movies$: Observable<Movie[]>;
   subscription: Subscription;
+  selectedMovieId: number;
 
   constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
     this.movieService.query();
-    this.subscription = this.movieService.movies$.subscribe((movies) => {
-      console.log(
-        '🚀 ~ file: movie-app.component.ts ~ line 22 ~ MovieAppComponent ~ this.subscription=this.movieService.movies$.subscribe ~ movies',
-        movies
-      );
-      this.movies = movies;
-    });
+    this.movies$ = this.movieService.movies$;
+    // this.subscription = this.movieService.movies$.subscribe((movies) => {
+    //   console.log(
+    //     '🚀 ~ file: movie-app.component.ts ~ line 22 ~ MovieAppComponent ~ this.subscription=this.movieService.movies$.subscribe ~ movies',
+    //     movies
+    //   );
+    //   this.movies = movies;
+    // });
+  }
+
+  onSelectMovie(movieId: number) {
+    this.selectedMovieId = movieId;
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 }

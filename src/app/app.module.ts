@@ -8,6 +8,7 @@ import { MovieListComponent } from './cmps/movie-list/movie-list.component';
 import { MoviePreviewComponent } from './cmps/movie-preview/movie-preview.component';
 import { MovieFilterComponent } from './cmps/movie-filter/movie-filter.component';
 import { FormsModule } from '@angular/forms';
+import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     MovieListComponent,
     MoviePreviewComponent,
     MovieFilterComponent,
+    MovieDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

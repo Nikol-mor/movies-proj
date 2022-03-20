@@ -1,5 +1,5 @@
 <section class="movie-preview">
-  <section class="info">
+  <section (click)="onSelect.emit(movie.id)" class="info">
     <h2>{{ movie.title }}</h2>
   </section>
 </section>
