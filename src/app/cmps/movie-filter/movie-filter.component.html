@@ -1,0 +1,8 @@
+<section class="movie-filter">
+  <input
+    type="text"
+    [(ngModel)]="filterBy.term"
+    (ngModelChange)="(onSetFilterBy)"
+    placeholder="Search for movie"
+  />
+</section>
