@@ -64,13 +64,15 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": { "proxyConfig": "src/proxy.conf.json" },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "ang-proj:build:production"
             },
             "development": {
-              "browserTarget": "ang-proj:build:development"
+              "browserTarget": "ang-proj:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

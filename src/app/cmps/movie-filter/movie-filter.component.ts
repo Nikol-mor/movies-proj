@@ -29,6 +29,6 @@ export class MovieFilterComponent implements OnInit, OnDestroy {
   }
 
   onSetFilterBy() {
-    this.movieService.setFilterBy({ ...this.filterBy });
+    // this.movieService.setFilterBy({ ...this.filterBy });
   }
 }

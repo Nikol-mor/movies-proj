@@ -1,5 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -9,25 +10,33 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./movie-details.component.scss'],
 })
 export class MovieDetailsComponent implements OnInit, OnDestroy {
-  // @Input() movieId: string;
-  movie: Movie;
+  movie: Movie[] | undefined;
+  subscription: Subscription;
 
   constructor(
     private movieService: MovieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
-  async ngOnInit() {
-    this.route.params.subscribe(async (params) => {
-      this.movie = await this.movieService.getById(params['id']).toPromise();
-    });
-
-    // this.movie = await this.movieService.getById(this.movieId).toPromise();
-
-    // this.movieService.getById(this.movieId).subscribe((movie) => {
-    //   this.movie = movie;
+  ngOnInit() {
+    this.getMovie();
+    // this.subscription = this.route.params.subscribe((params) => {
+    //   console.log('params', params);
+    //   // console.log('params.id', params['id']);
+    //   this.movieService.getById(params['id']).toPromise();
     // });
+    // console.log('susbc', this.subscription);
   }
 
-  ngOnDestroy(): void {}
+  getMovie(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    console.log('id', id);
+    this.movieService.getById(id).subscribe((movie) => (this.movie = movie));
+    console.log('this.movie', this.movie);
+  }
+
+  ngOnDestroy(): void {
+    // this.subscription.unsubscribe();
+  }
 }

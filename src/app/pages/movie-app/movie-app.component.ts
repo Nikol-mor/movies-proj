@@ -11,14 +11,17 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieAppComponent implements OnInit, OnDestroy {
   movies: Movie[];
   movies$: Observable<Movie[]>;
-  // subscription: Subscription;
+  subscription: Subscription;
   // selectedMovieId: string;
 
   constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
-    this.movieService.query();
-    this.movies$ = this.movieService.movies$;
+    // this.movieService.query();
+    // this.movies$ = this.movieService.movies$;
+
+    this.getMovies();
+
     // this.subscription = this.movieService.movies$.subscribe((movies) => {
     //   console.log(
     //     '🚀 ~ file: movie-app.component.ts ~ line 22 ~ MovieAppComponent ~ this.subscription=this.movieService.movies$.subscribe ~ movies',
@@ -26,6 +29,14 @@ export class MovieAppComponent implements OnInit, OnDestroy {
     //   );
     //   this.movies = movies;
     // });
+  }
+
+  getMovies(): void {
+    this.movieService.getMovies().subscribe((movies) => {
+      console.log('movies', movies);
+      this.movies = movies;
+      console.log('this.movies', this.movies);
+    });
   }
 
   // onSelectMovie(movieId: string) {
