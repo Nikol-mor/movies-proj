@@ -1,13 +1,9 @@
 <section class="movie-app">
-  <!-- <movie-filter></movie-filter> -->
+  <!-- <main-nav [movies]="movies"></main-nav> -->
 
-  <div class="left-panel">
-    <movie-list [movies]="movies"></movie-list>
-  </div>
+  <movie-list [movies]="movies"></movie-list>
+
+  <router-outlet></router-outlet>
+
   <modal-list *ngIf="isModalListOpen" [movies]="movies"></modal-list>
-  <div class="right-panel">
-    <router-outlet></router-outlet>
-  </div>
-
-  <!-- <router-outlet></router-outlet> -->
 </section>

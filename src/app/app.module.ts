@@ -17,6 +17,15 @@ import { ModalListComponent } from './cmps/modal-list/modal-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +39,8 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     AppFooterComponent,
     ModalListComponent,
     SearchFilterPipe,
+
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +48,13 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NoopAnimationsModule,
+    MatSidenavModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

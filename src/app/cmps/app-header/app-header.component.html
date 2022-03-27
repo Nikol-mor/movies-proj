@@ -9,5 +9,7 @@
     >
     <a routerLink="login" routerLinkActive="active">Login</a>
   </nav>
-  <button (click)="onToggleList()">Open from list</button>
+  <button (click)="onToggleList()" [ngClass]="isModalOpen ? 'open' : ''">
+    Open from list
+  </button>
 </header>
