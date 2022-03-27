@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FilterBy } from 'src/app/models/filter-by';
 import { MovieService } from 'src/app/services/movie.service';
@@ -9,6 +9,8 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./movie-filter.component.scss'],
 })
 export class MovieFilterComponent implements OnInit, OnDestroy {
+  // @Input() getMovies: void;
+
   filterBy: FilterBy;
   subscription: Subscription;
 
@@ -16,12 +18,10 @@ export class MovieFilterComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.movieService.filterBy$.subscribe((filterBy) => {
-      console.log(
-        '🚀 ~ file: movie-filter.component.ts ~ line 21 ~ MovieFilterComponent ~ this.movieService.filterBy$.subscribe ~ filterBy',
-        filterBy
-      );
+      console.log('filterBy', filterBy);
       this.filterBy = filterBy;
     });
+    // this.getMovies();
   }
 
   ngOnDestroy(): void {
@@ -29,6 +29,6 @@ export class MovieFilterComponent implements OnInit, OnDestroy {
   }
 
   onSetFilterBy() {
-    // this.movieService.setFilterBy({ ...this.filterBy });
+    this.movieService.setFilterBy({ ...this.filterBy });
   }
 }

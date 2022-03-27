@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie';
+import { ModalService } from 'src/app/services/modal.service';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -12,23 +13,19 @@ export class MovieAppComponent implements OnInit, OnDestroy {
   movies: Movie[];
   movies$: Observable<Movie[]>;
   subscription: Subscription;
-  // selectedMovieId: string;
+  isModalListOpen: boolean;
 
-  constructor(private movieService: MovieService) {}
+  constructor(
+    private movieService: MovieService,
+    private modalService: ModalService
+  ) {}
 
   ngOnInit(): void {
-    // this.movieService.query();
-    // this.movies$ = this.movieService.movies$;
-
+    console.log('movoie-app renders');
     this.getMovies();
-
-    // this.subscription = this.movieService.movies$.subscribe((movies) => {
-    //   console.log(
-    //     '🚀 ~ file: movie-app.component.ts ~ line 22 ~ MovieAppComponent ~ this.subscription=this.movieService.movies$.subscribe ~ movies',
-    //     movies
-    //   );
-    //   this.movies = movies;
-    // });
+    this.subscription = this.modalService.modalListChange.subscribe(
+      (isClicked) => (this.isModalListOpen = isClicked)
+    );
   }
 
   getMovies(): void {
@@ -39,11 +36,5 @@ export class MovieAppComponent implements OnInit, OnDestroy {
     });
   }
 
-  // onSelectMovie(movieId: string) {
-  //   this.selectedMovieId = movieId;
-  // }
-
-  ngOnDestroy(): void {
-    // this.subscription.unsubscribe();
-  }
+  ngOnDestroy(): void {}
 }

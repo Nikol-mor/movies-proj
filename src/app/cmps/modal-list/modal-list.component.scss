@@ -1,0 +1,15 @@
+.modal-list {
+  height: 400px;
+  width: 400px;
+  position: fixed;
+  inset: 0;
+  top: -10%;
+  margin: auto;
+  padding-top: 5%;
+  background-color: rgb(250, 252, 250);
+  border: #e91e63b3 3px solid;
+  box-shadow: -3px 1px 28px #00000061;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

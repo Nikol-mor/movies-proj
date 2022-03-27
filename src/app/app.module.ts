@@ -13,6 +13,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppFooterComponent } from './cmps/app-footer/app-footer.component';
+import { ModalListComponent } from './cmps/modal-list/modal-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,8 +28,16 @@ import { AppFooterComponent } from './cmps/app-footer/app-footer.component';
     LoginComponent,
     AppHeaderComponent,
     AppFooterComponent,
+    ModalListComponent,
+    SearchFilterPipe,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

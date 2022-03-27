@@ -8,6 +8,7 @@ import { Movie } from 'src/app/models/movie';
 })
 export class MoviePreviewComponent implements OnInit {
   @Input() movie: Movie;
+  @Input() movies: Movie[];
   // @Output() onSelect = new EventEmitter<string>();
   constructor() {}
 

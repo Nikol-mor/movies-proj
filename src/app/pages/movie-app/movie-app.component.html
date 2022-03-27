@@ -1,19 +1,13 @@
 <section class="movie-app">
-  <!-- <movie-details
-    *ngIf="selectedMovieId; else petList"
-    [movieId]="selectedMovieId"
-  ></movie-details> -->
+  <!-- <movie-filter></movie-filter> -->
 
-  <!-- <ng-template #petList> -->
+  <div class="left-panel">
+    <movie-list [movies]="movies"></movie-list>
+  </div>
+  <modal-list *ngIf="isModalListOpen" [movies]="movies"></modal-list>
+  <div class="right-panel">
+    <router-outlet></router-outlet>
+  </div>
 
-  <movie-filter></movie-filter>
-  <movie-list [movies]="movies"></movie-list>
-  <!-- movie-details -->
-  <router-outlet></router-outlet>
-
-  <!-- <movie-list
-      (onSelect)="selectedMovieId = $event"
-      [movies]="movies$ | async"
-    ></movie-list> -->
-  <!-- </ng-template> -->
+  <!-- <router-outlet></router-outlet> -->
 </section>

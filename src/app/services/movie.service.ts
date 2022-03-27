@@ -31,19 +31,22 @@ export class MovieService {
   public filterBy$ = this._filterBy$.asObservable();
 
   MOVIES: Observable<Movie[]>;
-
-  // public query() {
-  //   const movies = this.http
-  //     .get<Movie>('//localhost:3030/api/movie/')
-  //     .subscribe((movies) => {
-  //       console.log(movies);
-  //     });
-  // }
+  movies_array: Movie[];
 
   public getMovies(): Observable<Movie[]> {
-    // return this.http.get<Movie[]>('//localhost:3030/api/movie/');
+    // const filterBy = this._filterBy$.getValue();
     const movies = this.http.get<Movie[]>('//localhost:3030/api/movie/');
     this.MOVIES = movies;
+    // this.obsToArray();
+    // console.log('filterby', filterBy);
+    // if (filterBy.term !== '') {
+    //   const filteredMovies = this.movies_array.filter(({ title }) => {
+    //     return title.toLowerCase().includes(filterBy.term.toLowerCase());
+    //   });
+    //   console.log('filtered', filteredMovies);
+    //   return of(filteredMovies);
+    // }
+
     return movies;
   }
 
@@ -52,10 +55,14 @@ export class MovieService {
     const url = `//localhost:3030/api/movie/${movieId}`;
     return this.http.get<Movie[]>(url);
   }
-  // public setFilterBy(filterBy: FilterBy) {
-  //   this._filterBy$.next(filterBy);
-  //   this.query();
-  // }
+  public setFilterBy(filterBy: FilterBy) {
+    this._filterBy$.next(filterBy);
+    this.getMovies();
+  }
+
+  private obsToArray() {
+    return this.MOVIES.subscribe((movies) => (this.movies_array = movies));
+  }
 
   //Mock DB
 

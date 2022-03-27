@@ -1,0 +1,12 @@
+<section class="modal-list">
+  <!-- <movie-filter></movie-filter> -->
+  <form [formGroup]="searchForm">
+    <input formControlName="search" />
+  </form>
+  <!-- <movie-list [movies]="movies"></movie-list> -->
+  <movie-preview
+    [movies]="movies"
+    *ngFor="let movie of movies | searchFilter: searchForm.value.search"
+    [movie]="movie"
+  ></movie-preview>
+</section>
